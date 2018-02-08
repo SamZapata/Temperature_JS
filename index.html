@@ -1,21 +1,55 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="styles/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Rammetto+One" rel="stylesheet"> 
 	<title>Temperature Calculator. Learning JS</title>
 </head>
 
 <body>
+
+<section class="wrapper">
+ 
+    <div class="row">
+     
+        <div class="column-3"></div>
+        <div class="column-3"></div>
+        <div class="column-6"></div>
+     
+    </div>
+ 
+</section>
 	
 	<div class="container" align="center">
-		<h1 style="color: black">Calculadora de Temperaturas</h1>
-	
-		<h3 style="color: blue">Conversor de Kelvin a Celcius y Fahrenheit</h3>
+		<div id="Kelvin">
+
+			<h1 style="color: black">Calculadora de Temperaturas</h1>
 		
-		<p align="center">
-			<strong style="color: red">Celcius: </strong> <celsius></celsius>
+			<!-- KELVIN-->
+			<h3 style="color: blue">Conversor de Kelvin a Celcius y Fahrenheit</h3>
+			
+			<p><strong>Kelvin: </strong> <input type="text" id="field"></p>
+
+			<p align="center">
+				<strong style="color: red">Celcius: </strong> <celsius></celsius>
+			
+				<strong style="color: red"> <=> Fahrenheit: </strong> <fahrenheit></fahrenheit>
+			</p>
+			<button onclick="getKelvin()">Kelvin</button>
+			<error><!--Cuando no se ingresa un número--></error>
+		</div>
 		
-			<strong style="color: red"> <=> Fahrenheit: </strong> <fahrenheit></fahrenheit>
-		</p>
+		<!-- CELSIUS -->
+		<div id="Celsius">
+			
+		</div>
+
+		<!-- FAHRENHEIT -->
+		<div id="Fahrenheit">
+			
+		</div>
+
 	</div>
 
 </body>

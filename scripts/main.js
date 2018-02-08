@@ -6,27 +6,130 @@
 	Description: this test is taked from Codecademy, intro to javascript.
 	And so, I continus add my code...*/
 
+
+//i. Definición de Clase
+
+//Pattern
+class Temperature {
+
+	constructor(valorIn) {
+		this._valorIn = valorIn;
+		//this._celsius = celsius;
+		//this._kelvin = kelvin;
+		//this._fahrenheit = fahrenheit;
+		
+	}
+
+	get valorIn () {
+		return this._valorIn;
+	}
+
+	
+	/*METODOS*/
+
+	//Calcula de Kelvin a Celsius
+	fromKelvinToCelsius(gradeIn) {
+
+		if (gradeIn >= 0 || gradeIn <= 0) {
+			this._valorIn = gradeIn - 273;			
+		} else {
+			var error = document.querySelector('error');
+			error.textContent = "Número de Entrada Incorrecto";
+		}
+
+	}
+
+	fromKelvinToFahrenheit(gradeIn) {
+		if (gradeIn >= 0 || gradeIn <= 0 ) {
+			this._valorIn = Math.floor((gradeIn*(9/5))-460);
+		} else {
+			var error = document.querySelector('error');
+			error.textContent = "Número de Entrada Incorrecto";
+		}
+	}
+
+	//Calcula de celsius a Fahrenheit
+	fromCelsiusToFahrenheit(gradeIn) {
+		
+		//el if permite verificar que realmente sea un número lo que se ingresa
+		if (gradeIn >= 0 || gradeIn <= 0 ) {
+			let auxCelsius = gradeIn - 273;
+			this._valorIn = Math.floor(((auxCelsius)*(9/5))+32);
+
+		} else {
+			var error = document.querySelector('error');
+			error.textContent = "Número de Entrada Incorrecto";
+		}
+	}
+
+	showConversionKTC() {
+		let showCelsius = document.querySelector('celsius');
+		showCelsius.textContent = this._valorIn;
+	}
+	
+}
+
+//Funciones para ingresar dato y hacer la respectiva conversión
+
+function getKelvin() {
+    
+    var gradeIn = document.getElementById("field").value;
+
+    const calculaTemperature = new Temperature(gradeIn);
+
+    calculaTemperature.fromKelvinToFahrenheit(gradeIn);
+	var showFahrenheit = document.querySelector('fahrenheit');
+	showFahrenheit.textContent = calculaTemperature.valorIn;
+
+	calculaTemperature.fromKelvinToCelsius(gradeIn);
+	calculaTemperature.showConversionKTC();
+
+    //
+    //document.getElementById("demo").innerHTML = field;
+    //return field;
+
+}
+
+//let gradeIn = prompt('Ingresa la temperatura en Kelvin: ');
+	
+
+//var showCelsius = document.querySelector('celsius');
+//showCelsius.textContent = calculaTemperature.valorIn;
+
+function myFunction() {
+    var x = document.getElementById("myText").value;
+    document.getElementById("demo").innerHTML = x;
+}
+
+//document.getElementById('celsius').innerHtml=gradeIn;
+
+
+
+/*Forma inicial de aprendizaje a partir de acá =) ...  borre una parte :/
+
 //Define variables y calcula su valor sobre las ecuaciones ya establecidas
-let kelvin = 294;
-let celsius = 0;
-let fahrenheit = 0;
+let kelvin = "";
+let celsius = "";
+let fahrenheit = "";
 
-/*i. Programa para pedir temperatura kelvin y mostrarla en celcius y farenheit. 
-*/
+//*i. Programa para pedir temperatura kelvin y mostrarla en celcius y farenheit. 
 
-//El usuario da la temperatura kelvin
 kelvin = prompt('Ingresa la temperatura en Kelvin: ')
 
-//El sistema muestra la temperatura en celsius y fahrenheit
+//Resultado por consola
 //console.log(celsius,fahrenheit);
 
-celsius = kelvin - 273;
-showCelsius = document.querySelector('celsius');
-showCelsius.textContent = celsius;
+//Se muestran los resultados correspondientes
+if (kelvin >= 0 || kelvin <= 0) {
+	//Calcula Celsius
+	
 
-fahrenheit = Math.floor((celsius*(9/5))+32);
-showFahrenheit = document.querySelector('fahrenheit');
-showFahrenheit.textContent = fahrenheit;
-
-/*var myHeading = document.querySelector('h1');
-myHeading.textContent = 'Hello world!';*/
+	//Calcula Fahrenheit
+	fahrenheit = Math.floor((celsius*(9/5))+32);
+	showFahrenheit = document.querySelector('fahrenheit');
+	showFahrenheit.textContent = fahrenheit;
+} else {
+	error = document.querySelector('error');
+	error.textContent = "El número no es valido";
+}
+*/
