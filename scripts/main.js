@@ -90,6 +90,17 @@ function getKelvin() {
 
 }
 
+function getCelsius() {
+	
+	var gradeIn = document.getElementById("field").value;
+
+	const calculaTemperature = new Temperature(gradeIn);
+
+	calculaTemperature.fromCelsiusToFahrenheit(gradeIn);
+	var showFahrenheit_ = document.querySelector('fahrenheit');
+	showFahrenheit_.textContent = calculaTemperature.valorIn;
+}
+
 //let gradeIn = prompt('Ingresa la temperatura en Kelvin: ');
 	
 

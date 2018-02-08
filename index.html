@@ -7,37 +7,47 @@
 	<title>Temperature Calculator. Learning JS</title>
 </head>
 
-<body>
+<body >
 
-<section class="wrapper">
- 
-    <div class="row">
-     
-        <div class="column-3"></div>
-        <div class="column-3"></div>
-        <div class="column-6"></div>
-     
-    </div>
- 
-</section>
 	
-	<div class="container" align="center">
-		<div id="Kelvin">
+	<h1 style="color: black" align="center">Calculadora de Temperaturas</h1>
+	
 
-			<h1 style="color: black">Calculadora de Temperaturas</h1>
-		
-			<!-- KELVIN-->
-			<h3 style="color: blue">Conversor de Kelvin a Celcius y Fahrenheit</h3>
-			
-			<p><strong>Kelvin: </strong> <input type="text" id="field"></p>
+	<div class="container">
+		<div class="column-12">
+		<div class="column-5" align="center">
+			<h3 style="color: blue">Unidades</h3></br>
+			<p>Seleccione la unidad de partida para la conversión</p><br>
+			<button onclick="getKelvin()"><h2>Kelvin</h2></button></br>
+			<button onclick="getCelsius()"><h2>Celsius</h2></button></br>
+			<button onclick="getKelvin()"><h2>Fahrenheit</h2></button></br>
+		</div>
 
-			<p align="center">
-				<strong style="color: red">Celcius: </strong> <celsius></celsius>
+		<div class="column-7" align="center">
+			<div class="boxOffice" >
 			
-				<strong style="color: red"> <=> Fahrenheit: </strong> <fahrenheit></fahrenheit>
-			</p>
-			<button onclick="getKelvin()">Kelvin</button>
-			<error><!--Cuando no se ingresa un número--></error>
+				<!-- KELVIN-->
+				<h3 style="color: blue">Conversor desde Kelvin</h3></br>
+				
+				<p>En el siguiente campo ingrese el valor de la temperatura (solo números),<br> con el que se hará la conversión a otras unidades </p></br>
+				
+				<input type="text" id="field" align="center"></br>
+				</br>
+
+				<h2 align="center">Celsius: <h3><celsius style="color: blue"></celsius></h3></h2>
+				<br>
+				<h2 align="center">Fahrenheit: <h3><fahrenheit style="color: blue"></fahrenheit></h3></h2>
+
+				<!--
+				<p align="center">
+					<strong style="color: red">Celcius: </strong>
+				
+					<strong style="color: red"> <=> Fahrenheit: </strong>
+				</p>
+				<!--<button onclick="getKelvin()">Kelvin</button>
+				<error><!--Cuando no se ingresa un número--></error>
+			</div>
+		</div>
 		</div>
 		
 		<!-- CELSIUS -->
