@@ -6,32 +6,44 @@
 
 body{
 	background-color: #f3f5f9;
+	background-repeat: no-repeat;
+	background-size: 100%;
+
 }
 
-h1{
+.header{
 	font-family: 'Rammetto One';
 	padding: 10px;
-	border: 10px solid #fff;
+	
 	margin: 20px auto;
-	background: #f3f9dd;
+	/*background: #f3f9dd;*/
+	color: black;
 }
 
-h2 {
+.subtitle {
 	font-family: 'Rammetto One';
 	font-size: 24px;
 	padding: 10px;
 	margin: 1px auto;
-	background: #f3f9dd;
+	/*background: #f3f9dd;*/
 }
 
 h3 {
-	font-family: 'Rammetto One';
+	font-family: tahoma;
 	color: blue;
 }
 
 button {
 	padding: 5px;
 	margin: 10px;
+	background-color: blue;
+	color: white;
+	border-radius: 0.8em;
+}
+
+.text-button {
+	font-family: 'Rammetto One';
+	font-size: 18px;
 }
 
 .boxOffice {

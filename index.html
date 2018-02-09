@@ -4,39 +4,150 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="styles/style.css">
 	<link href="https://fonts.googleapis.com/css?family=Rammetto+One" rel="stylesheet"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Temperature Calculator. Learning JS</title>
+	<link rel="stylesheet" type="text/css" href="styles/style.css">
+	<!--Using Bootstrap -->
+	<link rel="stylesheet" type="text/css" href="styles/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="styles/bootstrap-grid.min.css">
+
 </head>
 
 <body >
 
-	
-	<h1 style="color: black" align="center">Calculadora de Temperaturas</h1>
-	
+	<div class="row">
+	<h1 class="header" align="center">Conversor de Temperaturas</h1>
+	</div>
 
+	<!--Nav-Tabs Units -->
+	<!--Forma 1 
+	<div class="container col-sm-12">
+		<div class=" container col-sm-5">
+			<ul id="tabs" class="nav nav-tabs flex-sm-column nav-justified">
+				<li class="active">
+					<a href="#kelvin-tab" data-toggle="tab">Kelvin</a>
+				</li>
+				<li class="">
+					<a href="#celsius-tab" data-toggle="tab">Celius</a>
+				</li>
+				<li class="">
+					<a href="#fahrenheit-tab" data-toggle="tab">Fahrenheit</a>
+				</li>
+			</ul>
+
+			<!--Muestra cada Tab
+			<div id="tabContent" class="tab-content">
+				<div class="tab-pane fade active in" id="kelvin-tab">
+					Kelvin
+				</div>
+
+				<div class="tab-pane fade" id="celsius-tab">
+					Celsius
+				</div>
+
+				<div class="tab-pane fade" id="fahrenheit-tab">
+					Fahrenheit
+				</div>
+			</div>
+		</div>
+	</div>
+	-->
+
+	<!--Forma 2 -->
+	<div class="container row col-sm-12">
+		<div class="col-sm-5" align="center">
+			<div class="container">
+				<h3 class="subtitle" style="color: blue">Unidades</h3></br>
+			</div>				
+			<div class="nav flex-sm-column nav-pills" id="units-tab" role="tablist" aria-orientation="vertical">				
+				<a class="nav-link active" id="kelvin-unit" data-toggle="pill" href="#kelvin-tab" role="tab" aria-controls="kelvin-unit" aria-selected="true">Kelvin</a>
+				<a class="nav-link" id="celsius-unit" data-toggle="pill" href="#celsius-tab" role="tab" aria-controls="celsius-unit" aria-selected="false" >Celsius</a>
+				<a class="nav-link" id="fahrenheit-unit" data-toggle="pill" href="#fahrenheit-tab" role="tab" aria-controls="fahrenheit-unit" aria-selected="false">Fahrenheit</a>
+			</div>
+		</div>
+
+		<div class="col-sm-7" align="center">
+			<div class="tab-content" id="units-tabContent" aria-orientation="horizontal">
+				
+				<div class="tab-pane fade show active in" id="kelvin-tab" role="tabpanel" aria-labelledby="kelvin-unit">
+					
+					<!-- KELVIN-->
+					<div class="boxOffice" onload="window.location.reload()">
+					<h3 class="subtitle" style="color: blue">Conversor desde Kelvin</h3></br>
+					
+					<p>En el siguiente campo ingrese el valor de la temperatura (solo números),<br> con el que se hará la conversión a otras unidades </p></br>
+					
+					<input type="text" id="field" align="center"></br>
+					</br>
+					<button onclick="getKelvin()" class="text-button">Calcular</button></br>
+					<br>
+					<h3 align="center">Celsius: <celsius-value style="color: blue"></celsius-value></h3>
+					<h3 align="center">Fahrenheit: <fahrenheit-value style="color: blue"></fahrenheit-value></h3>	
+					</div>
+				</div>
+
+				<div class="tab-pane fade" id="celsius-tab" role="tabpanel" aria-labelledby="celsius-unit">
+					<!-- CELSIUS-->
+					<div class="boxOffice" onload="window.location.reload()">
+					<h3 class="subtitle" style="color: blue">Conversor desde Celsius</h3></br>
+					
+					<p>En el siguiente campo ingrese el valor de la temperatura (solo números),<br> con el que se hará la conversión a otras unidades </p></br>
+					
+					<input type="text" id="field" align="center"></br>
+					</br>
+					<button onclick="getCelsius()" class="text-button">Calcular</button></br>
+					<br>
+					<h3 align="center">Kelvin: <kelvin-value style="color: blue"></kelvin-value></h3>
+					<h3 align="center">Fahrenheit: <fahrenheit-value style="color: blue"></fahrenheit-value></h3>	
+					</div>
+				</div>
+				<div class="tab-pane fade" id="fahrenheit-tab" role="tabpanel" aria-labelledby="fahrenheit-unit">
+					<!-- CELSIUS-->
+					<div class="boxOffice">
+					<h3 class="subtitle" style="color: blue">Conversor desde Fahrenheit</h3></br>
+					
+					<p>En el siguiente campo ingrese el valor de la temperatura (solo números),<br> con el que se hará la conversión a otras unidades </p></br>
+					
+					<input type="text" id="field" align="center"></br>
+					</br>
+					<button onclick="getFahrenheit()" class="text-button">Calcular</button></br>
+					<br>
+					<h3 align="center">Kelvin: <kelvin-value style="color: blue"></kelvin-value></h3>
+					<h3 align="center">Celsius: <celsius-value style="color: blue"></celsius-value></h3>	
+					</div> 
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+
+	<!-- Forma Inicial
 	<div class="container">
 		<div class="column-12">
 		<div class="column-5" align="center">
-			<h3 style="color: blue">Unidades</h3></br>
+			<h3 class="subtitle" style="color: blue">Unidades</h3></br>
 			<p>Seleccione la unidad de partida para la conversión</p><br>
 			<button onclick="getKelvin()"><h2>Kelvin</h2></button></br>
 			<button onclick="getCelsius()"><h2>Celsius</h2></button></br>
-			<button onclick="getKelvin()"><h2>Fahrenheit</h2></button></br>
+			<button onclick="getFahrenheit()"><h2>Fahrenheit</h2></button></br>
 		</div>
 
 		<div class="column-7" align="center">
 			<div class="boxOffice" >
 			
-				<!-- KELVIN-->
-				<h3 style="color: blue">Conversor desde Kelvin</h3></br>
+				
+				<!-- KELVIN
+				<h3 class="subtitle style="color: blue">Conversor desde Kelvin</h3></br>
 				
 				<p>En el siguiente campo ingrese el valor de la temperatura (solo números),<br> con el que se hará la conversión a otras unidades </p></br>
 				
 				<input type="text" id="field" align="center"></br>
 				</br>
 
-				<h2 align="center">Celsius: <h3><celsius style="color: blue"></celsius></h3></h2>
+				<h2 align="center">Celsius: <h3><celsius-value style="color: blue"></celsius-value></h3></h2>
 				<br>
-				<h2 align="center">Fahrenheit: <h3><fahrenheit style="color: blue"></fahrenheit></h3></h2>
+				<h2 align="center">Fahrenheit: <h3><fahrenheit-value style="color: blue"></fahrenheit-value></h3></h2>
 
 				<!--
 				<p align="center">
@@ -45,23 +156,23 @@
 					<strong style="color: red"> <=> Fahrenheit: </strong>
 				</p>
 				<!--<button onclick="getKelvin()">Kelvin</button>
-				<error><!--Cuando no se ingresa un número--></error>
+				<error><!--Cuando no se ingresa un número</error>-->
 			</div>
 		</div>
-		</div>
-		
-		<!-- CELSIUS -->
-		<div id="Celsius">
-			
-		</div>
-
-		<!-- FAHRENHEIT -->
-		<div id="Fahrenheit">
-			
 		</div>
 
 	</div>
 
+	<script src="scripts/main.js"></script>
+	<script src="scripts/bootstrap.js" type="text/javascript"></script>
+
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+	
+
 </body>
-<script src="scripts/main.js"></script>
+
 </html>
